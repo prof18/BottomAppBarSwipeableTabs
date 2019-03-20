@@ -1,16 +1,5 @@
-# bottom_bar
+# Bottom App Bar Swipeable Tabs
 
-A new Flutter project.
+A simple example app with a BottomAppBar with Swipeable Tabs and a Menu for changing tabs. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+For more info, please give a look to the related blogpost: https://medium.com/@marcogomiero/bottom-app-bar-with-menu-and-swipeable-tabs-in-flutter-285ff2042cb8 
