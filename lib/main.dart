@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
 }
 
 class _Page {
-  _Page({ this.widget });
+  _Page({this.widget});
   final StatelessWidget widget;
 }
 
- List<_Page> _allPages = <_Page>[
+List<_Page> _allPages = <_Page>[
   _Page(widget: PlaceholderWidget("Screen 1")),
   _Page(widget: PlaceholderWidget("Screen 2")),
   _Page(widget: PlaceholderWidget("Screen 3")),
@@ -35,8 +35,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   TabController _controller;
 
   @override
@@ -68,13 +68,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
               top: false,
               bottom: false,
               child: Container(
-                key: ObjectKey(page.widget),
-                padding: const EdgeInsets.all(12.0),
-                child: page.widget
-              ),
+                  key: ObjectKey(page.widget),
+                  padding: const EdgeInsets.all(12.0),
+                  child: page.widget),
             );
-          }).toList()
-      ),
+          }).toList()),
       bottomNavigationBar: BottomAppBar(
         child: new Row(
           mainAxisSize: MainAxisSize.max,
@@ -83,56 +81,50 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             IconButton(
                 icon: Icon(Icons.menu),
                 onPressed: () {
-                  showModalBottomSheet<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return new Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            new ListTile(
-                              leading: new Icon(Icons.music_note),
-                              title: new Text('Screen 1'),
-                              onTap: () {
-                                _controller.animateTo(0);
-                                Navigator.pop(context);
-                              },
-                            ),
-                            new ListTile(
-                              leading: new Icon(Icons.photo_album),
-                              title: new Text('Screen 2'),
-                              onTap: () {
-                                _controller.animateTo(1);
-                                Navigator.pop(context);
-                              },
-                            ),
-                            new ListTile(
-                              leading: new Icon(Icons.videocam),
-                              title: new Text('Screen 3'),
-                              onTap: () {
-                                _controller.animateTo(2);
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
-                        );
-                      });
+                  _showModal();
                 }),
             IconButton(
               icon: Icon(Icons.search),
-              onPressed: () {
-                showBottomSheet(
-                    context: context, builder: (BuildContext context) {
-                  TextField(
-                    onChanged: (text) {
-                      print("First text field: $text");
-                    },
-                  );
-                });
-              },
-            )
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void _showModal() {
+    showModalBottomSheet<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new ListTile(
+                leading: new Icon(Icons.music_note),
+                title: new Text('Screen 1'),
+                onTap: () {
+                  _controller.animateTo(0);
+                  Navigator.pop(context);
+                },
+              ),
+              new ListTile(
+                leading: new Icon(Icons.photo_album),
+                title: new Text('Screen 2'),
+                onTap: () {
+                  _controller.animateTo(1);
+                  Navigator.pop(context);
+                },
+              ),
+              new ListTile(
+                leading: new Icon(Icons.videocam),
+                title: new Text('Screen 3'),
+                onTap: () {
+                  _controller.animateTo(2);
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
   }
 }
